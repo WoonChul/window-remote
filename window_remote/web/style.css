@@ -1,0 +1,51 @@
+:root {
+  --bg: #16181d;
+  --panel: #22252c;
+  --line: #343842;
+  --text: #e6e8ec;
+  --muted: #9aa1ad;
+  --accent: #4c8dff;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; }
+body { display: flex; flex-direction: column; overflow: hidden; }
+
+button, select, textarea, input { font: inherit; color: var(--text); }
+button, select { background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+  min-height: 36px; padding: 0 10px; }
+button:active, button.on { background: var(--accent); border-color: var(--accent); }
+
+#toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 8px;
+  background: var(--panel); border-bottom: 1px solid var(--line); }
+#winSelect { flex: 1 1 180px; min-width: 0; max-width: 420px; }
+#toolbar .group { display: inline-flex; gap: 2px; }
+#status { margin-left: auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+#stage { position: relative; flex: 1; overflow: hidden; background: #000; touch-action: none;
+  outline: none; user-select: none; -webkit-user-select: none; }
+#stage:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+#screen { position: absolute; left: 0; top: 0; transform-origin: 0 0; image-rendering: auto; }
+#stage.pixelated #screen { image-rendering: pixelated; }
+#overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); pointer-events: none; font-size: 16px; }
+#overlay[hidden] { display: none; }
+#cursor { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%;
+  border: 2px solid #fff; box-shadow: 0 0 0 1px #000; pointer-events: none; }
+#cursor::after { content: ""; position: absolute; left: 6px; top: 6px; width: 2px; height: 2px;
+  background: #ff3b3b; }
+
+#keybar { background: var(--panel); border-top: 1px solid var(--line); padding: 6px;
+  padding-bottom: max(6px, env(safe-area-inset-bottom)); }
+#keybar .keys { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 6px; }
+#keybar .keys button { flex: 0 0 auto; }
+#kbdInput { width: 100%; resize: none; background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 8px; }
+
+#settings { position: fixed; right: 8px; top: 52px; width: min(320px, calc(100% - 16px));
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px;
+  display: flex; flex-direction: column; gap: 10px; z-index: 10; box-shadow: 0 8px 24px #0008; }
+#settings[hidden] { display: none; }
+#settings h2 { margin: 0; font-size: 15px; }
+#settings label { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+#settings select, #settings input { max-width: 60%; }
