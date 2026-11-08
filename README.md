@@ -18,9 +18,19 @@ Windows PC에서 실행 중인 **프로그램 창 하나를 골라서** 폰·태
 - 폰용 키 막대: Ctrl/Alt/Shift/Win(누른 상태 유지), Esc, Tab, 방향키, 한/영, Ctrl+Z/C/V/S
 - 연결이 끊기면 눌린 키·버튼을 자동으로 해제
 
+## 받기
+
+저장소: https://github.com/WoonChul/window-remote
+
+```powershell
+git clone https://github.com/WoonChul/window-remote.git C:\window-remote
+```
+
+git이 없으면 GitHub 페이지의 **Code → Download ZIP**으로 받아서 `C:\window-remote`에 푸세요.
+
 ## 실행 (호스트 Windows PC)
 
-Python 3.10 이상이 필요합니다. 폴더(예: `C:\window-remote`)에서 배치 파일을 더블클릭하면 됩니다.
+Python 3.10 이상이 필요합니다. 폴더(`C:\window-remote`)에서 배치 파일을 더블클릭하면 됩니다.
 
 | 파일 | 하는 일 |
 | --- | --- |
